@@ -18,3 +18,14 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    });
+});
+
+
+// Route::middleware(['auth', 'user'])->group(function () {
+//     Route::get('/quiz', [QuizController::class, 'index']);
+// });
