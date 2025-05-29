@@ -9,7 +9,7 @@ Une plateforme de quiz développée avec **Laravel** (PHP) et **Bootstrap**, per
 - Authentification complète (enregistrement, connexion, déconnexion)
 - Création de quiz avec titre et description
 - Liste des quiz disponibles
-- Ajout de questions avec réponses
+- Ajout de questions avec plusieurs réponses
 - Réalisation de quiz avec résultats immédiats
 - Interface responsive grâce à Bootstrap
 
@@ -21,8 +21,52 @@ Une plateforme de quiz développée avec **Laravel** (PHP) et **Bootstrap**, per
 - PHP 8.x
 - SQLite (base de données simple et portable)
 - Bootstrap 5
-- Blade (système de templates Laravel)
+- Blade (moteur de templates Laravel)
 - Git + GitHub
+
+---
+
+## 🧪 Tester l'application
+
+### ➤ Option 1 : Créez un compte via l'interface
+
+Accédez à [http://127.0.0.1:8000/register](http://127.0.0.1:8000/register) et inscrivez-vous normalement.
+
+### ➤ Option 2 : Créez un compte test via Tinker
+
+```bash
+
+php artisan tinker
+
+\App\Models\User::create([
+    'name' => 'Test User',
+    'email' => 'test@example.com',
+    'password' => bcrypt('password123'),
+]);
+
+```
+
+Ensuite, connectez-vous avec :\
+Email : test@example.com\
+Mot de passe : password123
+
+---
+
+## ⚙️ Structure du projet
+
+├── app/\
+│   ├── Http/\
+│   ├── Models/\
+│   └── ...\
+├── database/\
+│   ├── migrations/\
+│   └── seeders/\
+├── resources/\
+│   └── views/\
+├── routes/\
+│   └── web.php\
+└── public/
+
 
 ---
 
