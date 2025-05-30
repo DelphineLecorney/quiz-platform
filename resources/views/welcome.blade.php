@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Quiz Platform</title>
@@ -8,20 +9,23 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #e3f2fd, #fce4ec);
+            background: linear-gradient(to right, #5d6e7a, #66a17a);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
+
         .hero {
             flex-grow: 1;
         }
+
         .quiz-img {
             max-width: 300px;
             margin: 20px auto;
         }
     </style>
 </head>
+
 <body>
     <div class="container text-center py-5 hero">
         <img src="{{ asset('images/logo.png') }}" alt="Logo Quiz" class="quiz-img">
@@ -40,4 +44,5 @@
         <small>&copy; {{ date('Y') }} Quiz Platform — Projet Laravel par Delphine.</small>
     </footer>
 </body>
+
 </html>
