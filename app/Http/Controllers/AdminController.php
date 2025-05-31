@@ -36,4 +36,41 @@ class AdminController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Rôle mis à jour.');
     }
+
+    public function createQuiz()
+    {
+        return view('admin.quiz.create');
+    }
+
+    public function storeQuiz(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'questions' => 'required|array',
+            'questions.*.text' => 'required|string',
+            'questions.*.answers' => 'required|array|min:1',
+            'questions.*.correct' => 'required',
+        ]);
+
+        $quiz = Quiz::create([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        foreach ($request->questions as $q) {
+            $question = $quiz->questions()->create([
+                'text' => $q['text'],
+            ]);
+
+            foreach ($q['answers'] as $i => $answerText) {
+                $question->answers()->create([
+                    'text' => $answerText,
+                    'is_correct' => $i == $q['correct'],
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.dashboard')->with('success', 'Quiz créé avec succès');
+    }
 }

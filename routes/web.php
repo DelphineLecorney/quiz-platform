@@ -35,3 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/quizzes', [QuizController::class, 'index'])->name('quizzes.index');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/quiz/{quiz}', [QuizController::class, 'show'])->name('quiz.show');
+    Route::post('/quiz/{quiz}/submit', [QuizController::class, 'submit'])->name('quiz.submit');
+});
+
+Route::get('/admin/quiz/create', [AdminController::class, 'createQuiz'])->name('admin.quiz.create');
+Route::post('/admin/quiz/store', [AdminController::class, 'storeQuiz'])->name('admin.quiz.store');
