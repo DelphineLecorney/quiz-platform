@@ -10,4 +10,6 @@ class Quiz extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    protected $fillable = ['title', 'description', 'user_id',];
 }
