@@ -9,14 +9,14 @@ class Question extends Model
 
     protected $fillable = ['quiz_id', 'text'];
 
+
     public function quiz()
-{
-    return $this->belongsTo(Quiz::class);
-}
+    {
+        return $this->belongsTo(Quiz::class);
+    }
 
-public function answers()
-{
-    return $this->hasMany(Answer::class);
-}
-
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }

@@ -25,7 +25,7 @@ class DashboardController extends Controller
             return view('admin.dashboard', compact('users', 'quizzes'));
         }
 
-
-        return view('user.dashboard');
+        $quizzes = Quiz::all();
+        return view('user.dashboard', compact('quizzes'));
     }
 }

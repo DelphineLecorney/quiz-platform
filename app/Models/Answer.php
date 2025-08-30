@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-    protected $fillable = ['question_id', 'text', 'is_correct'];
+    protected $fillable = ['answer_text', 'is_correct', 'question_id'];
 
     public function question()
-{
-    return $this->belongsTo(Question::class);
-}
-
+    {
+        return $this->belongsTo(Question::class);
+    }
 }

@@ -14,5 +14,12 @@ class TestUserSeeder extends Seeder
             'email' => 'test@example.com',
             'password' => bcrypt(env('TEST_USER_PASSWORD', 'password')),
         ]);
+
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => bcrypt(env('ADMIN_PASSWORD', 'admin123')),
+            'role' => 'admin',
+        ]);
     }
 }
