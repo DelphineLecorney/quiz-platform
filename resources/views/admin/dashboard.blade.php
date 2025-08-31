@@ -36,6 +36,7 @@
     </table>
 
     <h3>Quiz</h3>
+    <a href="{{ route('admin.quiz.create') }}" class="btn btn-primary mb-3">Créer un nouveau quiz</a>
     <table class="table">
         <thead>
             <tr>

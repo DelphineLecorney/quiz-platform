@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <title>Quiz Platform</title>
@@ -25,15 +24,20 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container text-center py-5 hero">
         <img src="{{ asset('images/logo.png') }}" alt="Logo Quiz" class="quiz-img">
-        <h1 class="display-4 fw-bold"> Bienvenue sur Quiz Platform</h1>
+        <h1 class="display-4 fw-bold">Bienvenue sur Quiz Platform</h1>
         <p class="lead">Créez, répondez et testez vos connaissances en toute simplicité.</p>
 
         @auth
-            <a href="{{ route('dashboard') }}" class="btn btn-primary mt-3">Accéder au tableau de bord</a>
+        @php
+            $user = auth()->user();
+            $dashboardRoute = ($user && $user->role === \App\Enums\Role::ADMIN)
+                ? route('admin.dashboard')
+                : route('dashboard');
+        @endphp
+            <a href="{{ $dashboardRoute }}" class="btn btn-primary mt-3">Accéder au tableau de bord</a>
         @else
             <a href="{{ route('register') }}" class="btn btn-success mt-3 me-2">Créer un compte</a>
             <a href="{{ route('login') }}" class="btn btn-outline-primary mt-3">Se connecter</a>
@@ -44,5 +48,4 @@
         <small>&copy; {{ date('Y') }} Quiz Platform — Projet Laravel par Delphine.</small>
     </footer>
 </body>
-
 </html>

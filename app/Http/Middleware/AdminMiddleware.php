@@ -2,20 +2,19 @@
 
 namespace App\Http\Middleware;
 
-use App\Enums\Role;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Enums\Role;
 
 class AdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user();
-
-        if (!$user || $user->role !== Role::ADMIN) {
-            abort(403, 'Accès refusé. Seuls les administrateurs peuvent accéder à cette page.');
+        if (!Auth::check() || Auth::user()->role !== Role::ADMIN) {
+            return redirect()->route('dashboard')->with('error', 'Accès réservé aux admins.');
         }
+
 
         return $next($request);
     }
