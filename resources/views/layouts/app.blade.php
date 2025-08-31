@@ -5,8 +5,26 @@
     <title>Quiz Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #5d6e7a, #7e9e88);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            flex-grow: 1;
+        }
+
+        .quiz-img {
+            max-width: 300px;
+            margin: 20px auto;
+        }
+    </style>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+    <nav class="navbar navbar-expand-lg px-4" style="background-color: #8d9e93;">
         <a class="navbar-brand" href="#">Quiz App</a>
 
         <div class="ms-auto">

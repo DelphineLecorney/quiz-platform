@@ -4,10 +4,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>Bienvenue, {{ auth()->user()->name }}</h1>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-outline-danger">Se déconnecter</button>
-        </form>
+
     </div>
 
     <h2 class="mb-3">Quiz disponibles</h2>

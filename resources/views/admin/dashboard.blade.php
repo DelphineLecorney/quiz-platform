@@ -60,16 +60,5 @@
             @endforeach
         </tbody>
     </table>
-
-    <div class="mt-4">
-        <a href="{{ route('logout') }}"
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            Se déconnecter
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-    </div>
 </div>
 @endsection
